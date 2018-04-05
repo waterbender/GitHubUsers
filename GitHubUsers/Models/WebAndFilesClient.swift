@@ -1,8 +1,8 @@
 //
 //  WebClient.swift
-//  SANDBX CARS
+//  GitHubUsers
 //
-//  Created by Yevgenii Pasko on 3/26/18.
+//  Created by Yevgenii Pasko on 4/6/18.
 //  Copyright © 2018 Yevgenii Pasko. All rights reserved.
 //
 
