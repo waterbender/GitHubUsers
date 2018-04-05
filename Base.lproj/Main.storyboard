@@ -33,11 +33,28 @@
                     <view key="view" contentMode="scaleToFill" id="nrn-qZ-fJx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0WC-ma-0v0">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="W9h-0Q-F9b" id="9ye-PE-Tfg"/>
+                                    <outlet property="delegate" destination="W9h-0Q-F9b" id="DH8-nJ-O1N"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="0WC-ma-0v0" firstAttribute="leading" secondItem="99Y-KJ-itk" secondAttribute="leading" id="c1z-kj-SIF"/>
+                            <constraint firstItem="99Y-KJ-itk" firstAttribute="bottom" secondItem="0WC-ma-0v0" secondAttribute="bottom" id="d2e-8e-Q2b"/>
+                            <constraint firstItem="99Y-KJ-itk" firstAttribute="trailing" secondItem="0WC-ma-0v0" secondAttribute="trailing" id="kW8-mE-62B"/>
+                            <constraint firstItem="0WC-ma-0v0" firstAttribute="top" secondItem="99Y-KJ-itk" secondAttribute="top" id="vF2-xF-zwy"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="99Y-KJ-itk"/>
                     </view>
                     <navigationItem key="navigationItem" id="fEX-Jk-vAk"/>
                     <connections>
+                        <outlet property="tableView" destination="0WC-ma-0v0" id="Ic2-VP-H7b"/>
                         <segue destination="2Sy-ef-6Lf" kind="show" id="Gri-pn-hMw"/>
                     </connections>
                 </viewController>
