@@ -29,6 +29,11 @@
 		EF11E7AA20769C3D00A2E168 /* UserListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF11E7A720769C3D00A2E168 /* UserListTableViewCell.xib */; };
 		EF11E7AB20769C3D00A2E168 /* UserListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF11E7A720769C3D00A2E168 /* UserListTableViewCell.xib */; };
 		EF11E7AC20769C5A00A2E168 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF11E77020767E1100A2E168 /* AppDelegate.swift */; };
+		EF1294B02076D7BE002334E3 /* FollowersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1294AF2076D7BE002334E3 /* FollowersListViewController.swift */; };
+		EF1294B22076D8A2002334E3 /* FollowersListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1294B12076D8A2002334E3 /* FollowersListViewModel.swift */; };
+		EF1294B32076D8A2002334E3 /* FollowersListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1294B12076D8A2002334E3 /* FollowersListViewModel.swift */; };
+		EF659D762076C92D005F6477 /* UserSynchronizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF659D752076C92D005F6477 /* UserSynchronizer.swift */; };
+		EF659D772076C92D005F6477 /* UserSynchronizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF659D752076C92D005F6477 /* UserSynchronizer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +68,9 @@
 		EF11E7A020768C2700A2E168 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		EF11E7A620769C3D00A2E168 /* UserListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListTableViewCell.swift; sourceTree = "<group>"; };
 		EF11E7A720769C3D00A2E168 /* UserListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserListTableViewCell.xib; sourceTree = "<group>"; };
+		EF1294AF2076D7BE002334E3 /* FollowersListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersListViewController.swift; sourceTree = "<group>"; };
+		EF1294B12076D8A2002334E3 /* FollowersListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersListViewModel.swift; sourceTree = "<group>"; };
+		EF659D752076C92D005F6477 /* UserSynchronizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSynchronizer.swift; sourceTree = "<group>"; };
 		F2679222032D31BEE0103DD8 /* Pods_GitHubUsers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GitHubUsers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFC03DFF75E87C486981789A /* Pods-GitHubUsers.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHubUsers.release.xcconfig"; path = "Pods/Target Support Files/Pods-GitHubUsers/Pods-GitHubUsers.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -111,8 +119,6 @@
 			isa = PBXGroup;
 			children = (
 				EF11E76F20767E1100A2E168 /* GitHubUsers */,
-				EF11E77420767E1100A2E168 /* Main.storyboard */,
-				EF11E77C20767E1300A2E168 /* LaunchScreen.storyboard */,
 				EF11E78720767E1300A2E168 /* GitHubUsersTests */,
 				EF11E76E20767E1100A2E168 /* Products */,
 				ED4CD2DE3126D62CE56F65C8 /* Pods */,
@@ -132,10 +138,12 @@
 		EF11E76F20767E1100A2E168 /* GitHubUsers */ = {
 			isa = PBXGroup;
 			children = (
-				EF11E79320767EED00A2E168 /* Helpers */,
 				EF11E79420767EF800A2E168 /* Views */,
 				EF11E79520767EFF00A2E168 /* ViewModels */,
 				EF11E79620767F0900A2E168 /* Models */,
+				EF11E79320767EED00A2E168 /* Helpers */,
+				EF11E77420767E1100A2E168 /* Main.storyboard */,
+				EF11E77C20767E1300A2E168 /* LaunchScreen.storyboard */,
 			);
 			path = GitHubUsers;
 			sourceTree = "<group>";
@@ -165,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				EF11E77220767E1100A2E168 /* UsersListViewController.swift */,
+				EF1294AF2076D7BE002334E3 /* FollowersListViewController.swift */,
 				EF11E7A620769C3D00A2E168 /* UserListTableViewCell.swift */,
 				EF11E7A720769C3D00A2E168 /* UserListTableViewCell.xib */,
 			);
@@ -175,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				EF11E79D20768BE900A2E168 /* UsersListViewModel.swift */,
+				EF1294B12076D8A2002334E3 /* FollowersListViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -184,6 +194,7 @@
 			children = (
 				EF11E79A20767FE900A2E168 /* WebAndFilesClient.swift */,
 				EF11E7A020768C2700A2E168 /* User.swift */,
+				EF659D752076C92D005F6477 /* UserSynchronizer.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -399,10 +410,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF1294B22076D8A2002334E3 /* FollowersListViewModel.swift in Sources */,
 				EF11E77320767E1100A2E168 /* UsersListViewController.swift in Sources */,
 				EF11E79B20767FE900A2E168 /* WebAndFilesClient.swift in Sources */,
 				EF11E79E20768BE900A2E168 /* UsersListViewModel.swift in Sources */,
 				EF11E77120767E1100A2E168 /* AppDelegate.swift in Sources */,
+				EF1294B02076D7BE002334E3 /* FollowersListViewController.swift in Sources */,
+				EF659D762076C92D005F6477 /* UserSynchronizer.swift in Sources */,
 				EF11E7A820769C3D00A2E168 /* UserListTableViewCell.swift in Sources */,
 				EF11E77920767E1100A2E168 /* GitHubUsers.xcdatamodeld in Sources */,
 				EF11E79820767F1F00A2E168 /* Constants.swift in Sources */,
@@ -420,6 +434,8 @@
 				EF11E7A220768C2700A2E168 /* User.swift in Sources */,
 				EF11E7AC20769C5A00A2E168 /* AppDelegate.swift in Sources */,
 				EF11E7A920769C3D00A2E168 /* UserListTableViewCell.swift in Sources */,
+				EF659D772076C92D005F6477 /* UserSynchronizer.swift in Sources */,
+				EF1294B32076D8A2002334E3 /* FollowersListViewModel.swift in Sources */,
 				EF11E79920767F1F00A2E168 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -576,7 +592,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZS64M736MH;
 				INFOPLIST_FILE = GitHubUsers/Helpers/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.yevgenii-test.GitHubUsers";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -592,7 +611,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZS64M736MH;
 				INFOPLIST_FILE = GitHubUsers/Helpers/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.yevgenii-test.GitHubUsers";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -609,7 +631,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZS64M736MH;
 				INFOPLIST_FILE = GitHubUsersTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.yevgenii-test.GitHubUsersTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -627,7 +653,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZS64M736MH;
 				INFOPLIST_FILE = GitHubUsersTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.yevgenii-test.GitHubUsersTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="yQO-kh-S1U">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="gyk-Ux-rvE">
+            <objects>
+                <navigationController id="yQO-kh-S1U" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="N5M-EL-rhv">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="W9h-0Q-F9b" kind="relationship" relationship="rootViewController" id="Zwg-N3-2XF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bUC-ch-tbl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-196" y="24"/>
+        </scene>
+        <!--Users List View Controller-->
+        <scene sceneID="oNp-IE-t4E">
+            <objects>
+                <viewController id="W9h-0Q-F9b" customClass="UsersListViewController" customModule="GitHubUsers" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nrn-qZ-fJx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0WC-ma-0v0">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="W9h-0Q-F9b" id="9ye-PE-Tfg"/>
+                                    <outlet property="delegate" destination="W9h-0Q-F9b" id="DH8-nJ-O1N"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="0WC-ma-0v0" firstAttribute="leading" secondItem="99Y-KJ-itk" secondAttribute="leading" id="c1z-kj-SIF"/>
+                            <constraint firstItem="99Y-KJ-itk" firstAttribute="bottom" secondItem="0WC-ma-0v0" secondAttribute="bottom" id="d2e-8e-Q2b"/>
+                            <constraint firstItem="99Y-KJ-itk" firstAttribute="trailing" secondItem="0WC-ma-0v0" secondAttribute="trailing" id="kW8-mE-62B"/>
+                            <constraint firstItem="0WC-ma-0v0" firstAttribute="top" secondItem="99Y-KJ-itk" secondAttribute="top" id="vF2-xF-zwy"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="99Y-KJ-itk"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="fEX-Jk-vAk"/>
+                    <connections>
+                        <outlet property="tableView" destination="0WC-ma-0v0" id="Ic2-VP-H7b"/>
+                        <segue destination="2Sy-ef-6Lf" kind="show" identifier="OpenFollowersSegueIdenifier" id="Gri-pn-hMw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8gS-5k-MiK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="495" y="24"/>
+        </scene>
+        <!--Followers List View Controller-->
+        <scene sceneID="2S1-fO-LFY">
+            <objects>
+                <viewController id="2Sy-ef-6Lf" customClass="FollowersListViewController" customModule="GitHubUsers" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ea6-bZ-3Dq">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hdi-wF-hJ6">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="2Sy-ef-6Lf" id="gYu-VF-lUE"/>
+                                    <outlet property="delegate" destination="2Sy-ef-6Lf" id="iZn-os-hvJ"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="fUC-7e-aiW" firstAttribute="trailing" secondItem="hdi-wF-hJ6" secondAttribute="trailing" id="36Q-ui-9Ye"/>
+                            <constraint firstItem="hdi-wF-hJ6" firstAttribute="top" secondItem="fUC-7e-aiW" secondAttribute="top" id="QgJ-nl-N9V"/>
+                            <constraint firstItem="hdi-wF-hJ6" firstAttribute="leading" secondItem="fUC-7e-aiW" secondAttribute="leading" id="Tu1-0X-41e"/>
+                            <constraint firstItem="fUC-7e-aiW" firstAttribute="bottom" secondItem="hdi-wF-hJ6" secondAttribute="bottom" id="qH3-vh-qhR"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="fUC-7e-aiW"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="JOy-Ug-aUf"/>
+                    <connections>
+                        <outlet property="tableView" destination="hdi-wF-hJ6" id="fHa-E3-vDE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aHB-Fv-NGu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <barButtonItem title="Item" id="APS-R1-rqb">
+                    <connections>
+                        <segue destination="2Sy-ef-6Lf" kind="show" identifier="OpenFollowersFromFolowersSegueIdenifier" id="PIY-rM-TRm"/>
+                    </connections>
+                </barButtonItem>
+            </objects>
+            <point key="canvasLocation" x="1194" y="24"/>
+        </scene>
+    </scenes>
+</document>

@@ -7,10 +7,15 @@
 //
 
 import UIKit
+import SDWebImage
 
 class UserListTableViewCell: UITableViewCell {
 
  
+    @IBOutlet weak var userIcon: UIImageView!
+    @IBOutlet weak var userName: UILabel!
+    @IBOutlet weak var userHtmlUrl: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -24,6 +29,15 @@ class UserListTableViewCell: UITableViewCell {
     }
     
     func setUserPropertiesData(user: User) {
-        
+        userIcon.sd_setImage(with: user.avatarUrl, completed: nil)
+        userName.text = user.login
+        userHtmlUrl.text = user.htmlUrl.absoluteString
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        userIcon.layer.cornerRadius = userIcon.bounds.height/2
+        userIcon.clipsToBounds = true
+        userIcon.layer.masksToBounds = true
     }
 }
