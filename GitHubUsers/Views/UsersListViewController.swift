@@ -12,6 +12,7 @@ class UsersListViewController: UIViewController{
 
     @IBOutlet weak var tableView: UITableView!
     let usersListViewModel = UsersListViewModel()
+    let searchController = UISearchController(searchResultsController: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +25,8 @@ class UsersListViewController: UIViewController{
         self.navigationController?.delegate = self;
         self.navigationItem.backBarButtonItem?.tintColor = UIColor.lightGray
         
+        self.creationOfSearchBar()
+        
         // subscribing nib to controller
         let nib = UINib(nibName: "UserListTableViewCell", bundle: Bundle.main)
         tableView.register(nib, forCellReuseIdentifier: Constants.UsersListCellIndetifier)
@@ -34,7 +37,25 @@ class UsersListViewController: UIViewController{
         }
         self.tableView.reloadData()
     }
-
+    
+    func creationOfSearchBar() {
+        
+        // adding search controller
+        
+        if #available(iOS 11.0, *) {
+            navigationItem.searchController = searchController
+        } else {
+            // Fallback on earlier versions
+            navigationItem.titleView = searchController.searchBar
+        }
+        // Setup the Search Controller
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search Users"
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -44,6 +65,9 @@ class UsersListViewController: UIViewController{
 extension UsersListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if isFiltering() {
+            return usersListViewModel.filteredArray.count
+        }
         return usersListViewModel.usersArray.count
     }
     
@@ -59,7 +83,7 @@ extension UsersListViewController: UITableViewDataSource {
     
     private func configurateCell(cell: UserListTableViewCell, indexPath: IndexPath) {
         
-        let user = usersListViewModel.usersArray[indexPath.row]
+        let user = isFiltering() ? usersListViewModel.filteredArray[indexPath.row] : usersListViewModel.usersArray[indexPath.row]
         cell.setUserPropertiesData(user: user)
     }
 }
@@ -79,7 +103,8 @@ extension UsersListViewController: UITableViewDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Constants.FollowersSegue {
             let indexPath = sender as? IndexPath ?? IndexPath()
-            let viewModel = usersListViewModel.createFollowersListViewModel(indexPath: indexPath)
+            let user = isFiltering() ? usersListViewModel.filteredArray[indexPath.row] : usersListViewModel.usersArray[indexPath.row]
+            let viewModel = usersListViewModel.createFollowersListViewModel(user: user)
             let finalController = segue.destination as! FollowersListViewController
             finalController.usersListViewModel = viewModel
             finalController.transitioningDelegate = self
@@ -96,6 +121,27 @@ extension UsersListViewController: UIViewControllerTransitioningDelegate, UINavi
         } else {
             return FlipDismissAnimationViewController(destinationFrame: self.view.frame)
         }
+    }
+}
+
+extension UsersListViewController: UISearchResultsUpdating {
+    // MARK: - UISearchResultsUpdating Delegate
+    func updateSearchResults(for searchController: UISearchController) {
+        filterContentForSearchText(searchController.searchBar.text!)
+    }
+    
+    func searchBarIsEmpty() -> Bool {
+        // Returns true if the text is empty or nil
+        return searchController.searchBar.text?.isEmpty ?? true
+    }
+    
+    func filterContentForSearchText(_ searchText: String, scope: String = "All") {
         
+        usersListViewModel.filterList(text: searchText)
+        tableView.reloadData()
+    }
+    
+    func isFiltering() -> Bool {
+        return searchController.isActive && !searchBarIsEmpty()
     }
 }

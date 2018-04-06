@@ -18,6 +18,7 @@ class UsersListViewModel: UsersList {
 
     // default array for Users table
     private (set) var usersArray = Array<User>()
+    private (set) var filteredArray = [User]()
     var reloadTableBlock: (()->())?
     private let usersSync = UserSynchronizer()
     
@@ -40,10 +41,15 @@ class UsersListViewModel: UsersList {
         }
     }
     
-    func createFollowersListViewModel(indexPath: IndexPath) -> (FollowersListViewModel) {
+    func createFollowersListViewModel(user: User) -> (FollowersListViewModel) {
         
-        let user = usersArray[indexPath.row]
         let followersListViewModel = FollowersListViewModel(url: user.followersUrl, userName:user.login)
         return followersListViewModel
+    }
+    
+    func filterList(text: String) {
+        filteredArray = usersArray.filter({( user : User) -> Bool in
+            return user.login.lowercased().contains(text.lowercased()) || user.htmlUrl.absoluteString.contains(text)
+        })
     }
 }
