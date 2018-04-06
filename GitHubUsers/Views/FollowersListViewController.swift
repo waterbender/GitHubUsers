@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DGElasticPullToRefresh
 
 class FollowersListViewController: UIViewController {
 
@@ -23,20 +24,41 @@ class FollowersListViewController: UIViewController {
         self.navigationController?.navigationBar.backgroundColor = UIColor.cyan
         self.navigationController?.navigationBar.tintColor = UIColor.lightGray
         
+        // enchatments of UI reloading
+        self.addingPullToRefresh()
+        
         // subscribing nib to controller
         let nib = UINib(nibName: "UserListTableViewCell", bundle: Bundle.main)
         tableView.register(nib, forCellReuseIdentifier: Constants.FollowersListCellIndetifier)
         tableView.estimatedRowHeight = UITableViewAutomaticDimension
         tableView.rowHeight = UITableViewAutomaticDimension
         usersListViewModel?.reloadTableBlock = {[weak self] in
+            self?.tableView.dg_stopLoading()
             self?.tableView.reloadData()
         }
         self.tableView.reloadData()
     }
 
+    func addingPullToRefresh() {
+        
+        // Initialize tableView
+        let loadingView = DGElasticPullToRefreshLoadingViewCircle()
+        loadingView.tintColor = UIColor(red: 78/255.0, green: 221/255.0, blue: 200/255.0, alpha: 1.0)
+        tableView.dg_addPullToRefreshWithActionHandler({ [weak self] () -> Void in
+            
+            self?.usersListViewModel?.refreshData()
+            }, loadingView: loadingView)
+        tableView.dg_setPullToRefreshFillColor(UIColor.lightGray)
+        tableView.dg_setPullToRefreshBackgroundColor(tableView.backgroundColor!)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    deinit {
+        tableView.dg_removePullToRefresh()
     }
 }
 
