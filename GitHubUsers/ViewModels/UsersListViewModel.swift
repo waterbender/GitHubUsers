@@ -40,6 +40,12 @@ class UsersListViewModel: UsersList {
         }
     }
     
+    func refreshData() {
+        usersArray.removeAll()
+        filteredArray.removeAll()
+        loadData(perPage: insetPosition)
+    }
+    
     func createFollowersListViewModel(user: User) -> (FollowersListViewModel) {
         
         let followersListViewModel = FollowersListViewModel(url: user.followersUrl, userName:user.login)

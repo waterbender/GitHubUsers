@@ -32,6 +32,7 @@
 		EF1294B02076D7BE002334E3 /* FollowersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1294AF2076D7BE002334E3 /* FollowersListViewController.swift */; };
 		EF1294B22076D8A2002334E3 /* FollowersListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1294B12076D8A2002334E3 /* FollowersListViewModel.swift */; };
 		EF1294B32076D8A2002334E3 /* FollowersListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1294B12076D8A2002334E3 /* FollowersListViewModel.swift */; };
+		EF5A581120776DFF008E43BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF11E77A20767E1300A2E168 /* Assets.xcassets */; };
 		EF659D762076C92D005F6477 /* UserSynchronizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF659D752076C92D005F6477 /* UserSynchronizer.swift */; };
 		EF659D772076C92D005F6477 /* UserSynchronizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF659D752076C92D005F6477 /* UserSynchronizer.swift */; };
 		EF9F10C72076F0FC004D36F1 /* FlipPresentAnimationControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9F10C62076F0FC004D36F1 /* FlipPresentAnimationControllerViewController.swift */; };
@@ -314,6 +315,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF5A581120776DFF008E43BA /* Assets.xcassets in Resources */,
 				EF11E7AB20769C3D00A2E168 /* UserListTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -409,11 +411,13 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-GitHubUsers/Pods-GitHubUsers-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/DGElasticPullToRefresh/DGElasticPullToRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DGElasticPullToRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 			);
@@ -614,10 +618,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZS64M736MH;
 				INFOPLIST_FILE = GitHubUsers/Helpers/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.yevgenii-test.GitHubUsers";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -633,10 +634,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZS64M736MH;
 				INFOPLIST_FILE = GitHubUsers/Helpers/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.yevgenii-test.GitHubUsers";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -653,11 +651,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZS64M736MH;
 				INFOPLIST_FILE = GitHubUsersTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.yevgenii-test.GitHubUsersTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -675,11 +669,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZS64M736MH;
 				INFOPLIST_FILE = GitHubUsersTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.yevgenii-test.GitHubUsersTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

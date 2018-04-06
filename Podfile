@@ -8,6 +8,7 @@ target 'GitHubUsers' do
   # Pods for GitHubUsers
   pod 'SDWebImage', '~> 4.0'
   pod 'NVActivityIndicatorView'
+  pod 'DGElasticPullToRefresh'
 
   target 'GitHubUsersTests' do
     inherit! :search_paths

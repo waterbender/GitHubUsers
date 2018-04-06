@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DGElasticPullToRefresh
 
 class UsersListViewController: UIViewController{
 
@@ -25,7 +26,9 @@ class UsersListViewController: UIViewController{
         self.navigationController?.delegate = self;
         self.navigationItem.backBarButtonItem?.tintColor = UIColor.lightGray
         
+        // initialization additional features
         self.creationOfSearchBar()
+        self.addingPullToRefresh()
         
         // subscribing nib to controller
         let nib = UINib(nibName: "UserListTableViewCell", bundle: Bundle.main)
@@ -33,6 +36,7 @@ class UsersListViewController: UIViewController{
         tableView.estimatedRowHeight = UITableViewAutomaticDimension
         tableView.rowHeight = UITableViewAutomaticDimension
         usersListViewModel.reloadTableBlock = {[weak self] in
+            self?.tableView.dg_stopLoading()
             self?.tableView.reloadData()
         }
         self.tableView.reloadData()
@@ -56,9 +60,26 @@ class UsersListViewController: UIViewController{
         definesPresentationContext = true
     }
     
+    func addingPullToRefresh() {
+        
+        // Initialize tableView
+        let loadingView = DGElasticPullToRefreshLoadingViewCircle()
+        loadingView.tintColor = UIColor(red: 78/255.0, green: 221/255.0, blue: 200/255.0, alpha: 1.0)
+        tableView.dg_addPullToRefreshWithActionHandler({ [weak self] () -> Void in
+            
+            self?.usersListViewModel.refreshData()
+            }, loadingView: loadingView)
+        tableView.dg_setPullToRefreshFillColor(UIColor(red: 57/255.0, green: 67/255.0, blue: 89/255.0, alpha: 1.0))
+        tableView.dg_setPullToRefreshBackgroundColor(tableView.backgroundColor!)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    deinit {
+        tableView.dg_removePullToRefresh()
     }
 }
 

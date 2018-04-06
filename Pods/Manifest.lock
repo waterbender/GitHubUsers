@@ -1,4 +1,5 @@
 PODS:
+  - DGElasticPullToRefresh (1.1)
   - NVActivityIndicatorView (4.1.1):
     - NVActivityIndicatorView/Presenter (= 4.1.1)
   - NVActivityIndicatorView/Presenter (4.1.1)
@@ -7,13 +8,15 @@ PODS:
   - SDWebImage/Core (4.3.3)
 
 DEPENDENCIES:
+  - DGElasticPullToRefresh
   - NVActivityIndicatorView
   - SDWebImage (~> 4.0)
 
 SPEC CHECKSUMS:
+  DGElasticPullToRefresh: 28f11a6026302a90f8ffebbc6e24748e584dddd3
   NVActivityIndicatorView: 60109b9bf46efc2e71ab81453196ccdfdfeea870
   SDWebImage: de4d90b5bff3571eae7bd16202b1f43135409fa5
 
-PODFILE CHECKSUM: e52ed69c9853ae4faa865c8e9f97f75fe284d805
+PODFILE CHECKSUM: 3dc2ce83b4cc6b5ad4322ed89ce7fd550ca580a4
 
 COCOAPODS: 1.4.0
