@@ -18,18 +18,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="media" translatesAutoresizingMaskIntoConstraints="NO" id="doV-9e-tfY">
+                            <imageView clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="StartImage" translatesAutoresizingMaskIntoConstraints="NO" id="AyI-M6-8v4">
                                 <rect key="frame" x="137.5" y="283.5" width="100" height="100"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="4Fq-Hy-t0S"/>
-                                    <constraint firstAttribute="height" constant="100" id="6Dg-oZ-eky"/>
+                                    <constraint firstAttribute="height" constant="100" id="Au0-WZ-jlC"/>
+                                    <constraint firstAttribute="width" constant="100" id="SUt-H8-2gK"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="doV-9e-tfY" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="WMm-Mb-bBW"/>
-                            <constraint firstItem="doV-9e-tfY" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="b7u-aP-MPI"/>
+                            <constraint firstItem="AyI-M6-8v4" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="k4z-Yj-NIg"/>
+                            <constraint firstItem="AyI-M6-8v4" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="mOs-hL-2NQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -40,6 +40,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="media" width="236" height="233"/>
+        <image name="StartImage" width="236" height="233"/>
     </resources>
 </document>
