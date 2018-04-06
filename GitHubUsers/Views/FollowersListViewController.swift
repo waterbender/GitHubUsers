@@ -21,6 +21,7 @@ class FollowersListViewController: UIViewController {
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationItem.title = "\(Constants.FollowersListTitle): \(usersListViewModel?.userName ?? "")"
         self.navigationController?.navigationBar.backgroundColor = UIColor.cyan
+        self.navigationController?.navigationBar.tintColor = UIColor.lightGray
         
         // subscribing nib to controller
         let nib = UINib(nibName: "UserListTableViewCell", bundle: Bundle.main)

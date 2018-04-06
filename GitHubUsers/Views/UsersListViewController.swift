@@ -22,6 +22,7 @@ class UsersListViewController: UIViewController{
         self.navigationItem.title = Constants.UsersListTitle
         self.navigationController?.navigationBar.backgroundColor = UIColor.cyan
         self.navigationController?.delegate = self;
+        self.navigationItem.backBarButtonItem?.tintColor = UIColor.lightGray
         
         // subscribing nib to controller
         let nib = UINib(nibName: "UserListTableViewCell", bundle: Bundle.main)
@@ -82,6 +83,7 @@ extension UsersListViewController: UITableViewDelegate {
             let finalController = segue.destination as! FollowersListViewController
             finalController.usersListViewModel = viewModel
             finalController.transitioningDelegate = self
+            
         }
     }
 }

@@ -8,6 +8,7 @@
 
 import UIKit
 import SDWebImage
+import NVActivityIndicatorView
 
 class UserListTableViewCell: UITableViewCell {
 
@@ -15,6 +16,7 @@ class UserListTableViewCell: UITableViewCell {
     @IBOutlet weak var userIcon: UIImageView!
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var userHtmlUrl: UILabel!
+    @IBOutlet weak var activityIndicator: NVActivityIndicatorView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -29,7 +31,13 @@ class UserListTableViewCell: UITableViewCell {
     }
     
     func setUserPropertiesData(user: User) {
-        userIcon.sd_setImage(with: user.avatarUrl, completed: nil)
+        
+        activityIndicator.startAnimating()
+        userIcon.sd_setImage(with: user.avatarUrl) { [weak self] (image, error, cache, url) in
+            OperationQueue.main.addOperation {
+                self?.activityIndicator.stopAnimating()
+            }
+        }
         userName.text = user.login
         userHtmlUrl.text = user.htmlUrl.absoluteString
     }
@@ -39,5 +47,7 @@ class UserListTableViewCell: UITableViewCell {
         userIcon.layer.cornerRadius = userIcon.bounds.height/2
         userIcon.clipsToBounds = true
         userIcon.layer.masksToBounds = true
+        userIcon.layer.borderWidth = 1
+        userIcon.layer.borderColor = UIColor.brown.cgColor
     }
 }

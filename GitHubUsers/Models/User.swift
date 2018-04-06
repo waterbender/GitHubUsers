@@ -93,8 +93,6 @@ extension User: Decodable {
         let followingUrl: String = try values.decode(String.self, forKey: .followingUrl)
         let gistsUrl: String = try values.decode(String.self, forKey: .gistsUrl)
         let starredUrl: String = try values.decode(String.self, forKey: .starredUrl)
-        
-        
         let subscriptionsUrl: URL = try values.decode(URL.self, forKey: .subscriptionsUrl)
         let organizationsUrl: URL = try values.decode(URL.self, forKey: .organizationsUrl)
         let reposUrl: URL = try values.decode(URL.self, forKey: .reposUrl)

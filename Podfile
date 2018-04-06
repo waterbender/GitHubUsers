@@ -7,6 +7,7 @@ target 'GitHubUsers' do
 
   # Pods for GitHubUsers
   pod 'SDWebImage', '~> 4.0'
+  pod 'NVActivityIndicatorView'
 
   target 'GitHubUsersTests' do
     inherit! :search_paths

@@ -42,19 +42,37 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WGf-gc-J7T" customClass="NVActivityIndicatorView" customModule="NVActivityIndicatorView">
+                        <rect key="frame" x="40" y="33" width="40" height="40"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="padding">
+                                <real key="value" value="0.0"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                <color key="value" red="0.84705882349999995" green="0.44705882349999998" blue="0.1450980392" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="string" keyPath="typeName" value="pacman"/>
+                        </userDefinedRuntimeAttributes>
+                    </view>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="WGf-gc-J7T" firstAttribute="centerX" secondItem="EEY-VP-Nz5" secondAttribute="centerX" id="8zY-gS-ZYs"/>
                     <constraint firstItem="EEY-VP-Nz5" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="A5M-uQ-t4G"/>
                     <constraint firstItem="Gf7-Bw-K0S" firstAttribute="top" secondItem="Bql-yk-xGu" secondAttribute="bottom" constant="8" id="Cza-NW-3NF"/>
+                    <constraint firstItem="WGf-gc-J7T" firstAttribute="centerY" secondItem="EEY-VP-Nz5" secondAttribute="centerY" id="H28-OV-7fr"/>
                     <constraint firstItem="Gf7-Bw-K0S" firstAttribute="leading" secondItem="EEY-VP-Nz5" secondAttribute="trailing" constant="8" id="IHZ-i7-cye"/>
+                    <constraint firstItem="WGf-gc-J7T" firstAttribute="height" secondItem="EEY-VP-Nz5" secondAttribute="height" constant="-60" id="JFk-5Z-tSn"/>
                     <constraint firstItem="EEY-VP-Nz5" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="S4l-37-lSE"/>
                     <constraint firstItem="Bql-yk-xGu" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="SAN-L3-bAY"/>
+                    <constraint firstItem="WGf-gc-J7T" firstAttribute="width" secondItem="EEY-VP-Nz5" secondAttribute="width" constant="-60" id="WJq-JD-j3j"/>
                     <constraint firstItem="Bql-yk-xGu" firstAttribute="leading" secondItem="EEY-VP-Nz5" secondAttribute="trailing" constant="8" id="vNg-i8-M4W"/>
                     <constraint firstAttribute="bottom" secondItem="EEY-VP-Nz5" secondAttribute="bottom" constant="3" id="yFt-yt-6eS"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="activityIndicator" destination="WGf-gc-J7T" id="cug-Ej-98Y"/>
                 <outlet property="userHtmlUrl" destination="Gf7-Bw-K0S" id="xQf-02-TGu"/>
                 <outlet property="userIcon" destination="EEY-VP-Nz5" id="FXG-Va-Lgo"/>
                 <outlet property="userName" destination="Bql-yk-xGu" id="zSJ-hp-BqH"/>
