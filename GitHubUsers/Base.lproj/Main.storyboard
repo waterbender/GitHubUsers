@@ -53,6 +53,7 @@
                         <viewLayoutGuide key="safeArea" id="99Y-KJ-itk"/>
                     </view>
                     <navigationItem key="navigationItem" id="fEX-Jk-vAk"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="tableView" destination="0WC-ma-0v0" id="Ic2-VP-H7b"/>
                         <segue destination="2Sy-ef-6Lf" kind="show" identifier="OpenFollowersSegueIdenifier" id="Gri-pn-hMw"/>

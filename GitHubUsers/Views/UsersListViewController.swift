@@ -21,6 +21,7 @@ class UsersListViewController: UIViewController{
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationItem.title = Constants.UsersListTitle
         self.navigationController?.navigationBar.backgroundColor = UIColor.cyan
+        self.navigationController?.delegate = self;
         
         // subscribing nib to controller
         let nib = UINib(nibName: "UserListTableViewCell", bundle: Bundle.main)
@@ -80,7 +81,19 @@ extension UsersListViewController: UITableViewDelegate {
             let viewModel = usersListViewModel.createFollowersListViewModel(indexPath: indexPath)
             let finalController = segue.destination as! FollowersListViewController
             finalController.usersListViewModel = viewModel
+            finalController.transitioningDelegate = self
         }
     }
 }
 
+extension UsersListViewController: UIViewControllerTransitioningDelegate, UINavigationControllerDelegate {
+    
+    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        if operation == .push {
+            return FlipPresentAnimationControllerViewController(originFrame: self.view.frame)
+        } else {
+            return FlipDismissAnimationViewController(destinationFrame: self.view.frame)
+        }
+        
+    }
+}
