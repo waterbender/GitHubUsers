@@ -14,6 +14,7 @@ class FollowersListViewModel: UsersList {
     private (set) var usersArray = Array<User>()
     private let usersSync = UserSynchronizer()
     private var userFollowersUrl: URL
+    private var insetPosition = 500
     
     var reloadTableBlock: (()->())?
     var userName: String
@@ -21,13 +22,14 @@ class FollowersListViewModel: UsersList {
     init(url: URL, userName: (String)) {
         self.userName = userName
         self.userFollowersUrl = url
-        loadData(since: 0, perPage: 30)
+        loadData(perPage: 30)
     }
     
-    func loadData(since: Int, perPage: Int) {
-        if since >= usersArray.count {
-            usersSync.getFollowers(since: since, perPage: perPage, url: self.userFollowersUrl) { [weak self] (users) in
+    func loadData(perPage: Int) {
+        if perPage > 0 {
+            usersSync.getFollowers(since: self.insetPosition, perPage: perPage, url: self.userFollowersUrl) { [weak self] (users) in
                 self?.usersArray.append(contentsOf: users)
+                self?.insetPosition = (self?.insetPosition ?? 0)+(self?.usersArray.count ?? 0)
                 guard let block = self?.reloadTableBlock else {
                     return
                 }

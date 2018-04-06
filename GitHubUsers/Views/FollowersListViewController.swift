@@ -72,7 +72,7 @@ extension FollowersListViewController: UITableViewDataSource {
 extension FollowersListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if (usersListViewModel?.usersArray.count)!-20 == indexPath.row {
-            usersListViewModel?.loadData(since: (usersListViewModel?.usersArray.count)!, perPage: 30)
+            usersListViewModel?.loadData(perPage: 30)
         }
     }
     
